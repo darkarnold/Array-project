@@ -4,13 +4,26 @@
 // Main function that calls all the helper functions
 const main = (m) => {
   // loop to check the numbers and assign them the types
-  for (num = 0; num < m+1; num++) {
+  for (num = 0; num<=m+1; num++) {
     // Array to store the types of numbers
     var finalArray = [];
-
+//check if the numbers are prime numbers and assign it the type
     if (primeNumber(num) == true) {
       finalArray.push("prime")
     }
+    //check if the numbers are multiples of 15 and assign it the type
+    if(fizzbuzz(num) == true){
+      finalArray.push("FizzBuzz")
+    }
+    // check if numbers are multiples of 3 and assign it the type
+    if(fizz(num) == true){
+      finalArray.push("Fizz")
+    }
+    // check if numbers are multiples of 5 and assign it the type
+    if(buzz(num) == true){
+      finalArray.push("Buzz")
+    }
+    // check if numbers are odd or even and assitgn it the type
     if (even_sort(num) == true) {
       finalArray.push("even")
     } else {
@@ -72,39 +85,41 @@ const primeNumber = (n) => {
 
   }
 
-  //}
-  //return primes;
+
+}
+// Fizzbuzz function
+const fizzbuzz = (n) =>{
+// check for multiples of 15 and number is greater or equal to 1
+  if(n%15==0 && n>=1){
+    return true
+  }
+  else{
+    return false
+  }
+
+}
+// Fizz function
+const fizz = (n) =>{
+//check for multiples of 3 and number is greater or equal to 1
+  if(n%3 == 0 && n>=1){
+    return true;
+  }
+  else{
+    return false
+  }
+
+}
+// Buzz function
+const buzz = (n) =>{
+  //check for multiples of 5 and number is greater or equal to 1
+  if(n%5 == 0 && n>=1){
+    return true;
+  }
+  else{
+    return false
+  }
 }
 
 
-// Array to store values from the fizzbuzzer function
-var fizzer = [];
-// FizzBuzz function
-
-const fizzbuzzer = number => {
-  // loop through the numbers
-  //for(let num =1; num<=number; num++){
-
-  // checks if a number is a multiple of 15
-  if (num % 15 === 0) {
-    fizzer.push(num + " FizzBuzz ");
-  }
-  //check if number is am ultiple of 3
-  else if (num % 3 === 0) {
-    fizzer.push(num + " Fizz ");
-  }
-  //check if number is a multiple of 5
-  else if (num % 5 === 0) {
-    fizzer.push(num + " Buzz ");
-  } else {
-
-    fizzer.push(num);
-
-  }
-
-return fizzer;
-}
-
-
-
-main(13);
+// call the main function
+main(100);
